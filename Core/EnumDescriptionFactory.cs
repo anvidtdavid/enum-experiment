@@ -11,13 +11,18 @@ namespace EnumExperiment.Core
 {
     public class EnumDescriptionFactory
     {
-        public static IEnumerable<EnumDescriptor> Create(string baseName, params string[] culturesNames)
+        public static Dictionary<string, Dictionary<string, EnumDescriptor>> Create(string baseName, params string[] culturesNames)
         {
             CultureInfo[] cultures = null;
 
             if (culturesNames.Length == 0)
             {
                 cultures = new[] { CultureInfo.CurrentCulture };
+            }
+            else
+            {
+                cultures = new[] { CultureInfo.CurrentCulture }
+                .Concat(culturesNames.Select(x => new CultureInfo(x))).ToArray();
             }
 
             var assembly = typeof(EnumDescriptionFactory).Assembly;
@@ -28,25 +33,25 @@ namespace EnumExperiment.Core
             var enums = typeof(Program).Assembly.DefinedTypes.Where(x => x.IsEnum);
             var displayAttr = typeof(DisplayAttribute);
 
+            var resultDictionary = new Dictionary<string, Dictionary<string, EnumDescriptor>>();
 
             foreach (var codeValue in enums)
             {
                 var enumFields = codeValue.GetMembers()
                     .Where(x => x.CustomAttributes.Any(y => y.AttributeType == displayAttr));
 
-                var enumDescription = new EnumDescriptor();
+                resultDictionary.Add(codeValue.Name, new Dictionary<string, EnumDescriptor>());
 
-                foreach (var culture in cultures)
+                foreach (var member in enumFields)
                 {
+                    var enumDescription = new EnumDescriptor
+                    {
+                        Code = (int)Enum.Parse(codeValue, member.Name)
+                    };
 
-                    foreach (var member in enumFields)
+                    foreach (var culture in cultures)
                     {
                         var attr = member.GetCustomAttributes(displayAttr, false).First() as DisplayAttribute;
-
-                        enumDescription.Code = (int)Enum.Parse(codeValue, member.Name);
-                        enumDescription.TypeName = codeValue.Name;
-                        enumDescription.Name = member.Name;
-
 
                         string display = member.Name, description = member.Name;
 
@@ -57,16 +62,18 @@ namespace EnumExperiment.Core
                         }
                         finally { }
 
-                        enumDescription.Add(culture.Name, member.Name, new EnumDisplayInfo 
+                        enumDescription.Add(culture.Name, new EnumDisplayInfo
                         {
                             Display = display,
                             Description = description
                         });
                     }
 
-                    yield return enumDescription;
+                    resultDictionary[codeValue.Name].Add(member.Name,enumDescription);
                 }
             }
+
+            return resultDictionary;
         }
     }
 }

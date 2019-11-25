@@ -12,9 +12,9 @@ namespace EnumExperiment.Controllers
     [ApiController]
     public class CommonController : ControllerBase
     {
-        private readonly IEnumerable<EnumDescriptor> enumDescriptors;
+        private readonly Dictionary<string, Dictionary<string, EnumDescriptor>> enumDescriptors;
 
-        public CommonController(IEnumerable<EnumDescriptor> enumDescriptors)
+        public CommonController(Dictionary<string, Dictionary<string, EnumDescriptor>> enumDescriptors)
         {
             this.enumDescriptors = enumDescriptors;
         }

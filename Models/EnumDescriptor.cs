@@ -9,37 +9,23 @@ namespace EnumExperiment.Models
 {
     public class EnumDescriptor
     {
-        public string TypeName { get; set; }
+         public int Code { get; set; }
 
-        public string Name { get; set; }
-
-        public IDictionary<string, IDictionary<string,EnumDisplayInfo>> DisplayInfo { get; set; }
-
-        public int Code { get; set; }
+        public IDictionary<string, EnumDisplayInfo> DisplayInfo { get; set; }
 
         public EnumDescriptor()
         {
-            DisplayInfo = new Dictionary<string, IDictionary<string, EnumDisplayInfo>>();
+            DisplayInfo = new Dictionary<string, EnumDisplayInfo>();
         }
 
-        public void Add(string cultureName, string memberName, EnumDisplayInfo displayInfo)
+        public void Add(string cultureName, EnumDisplayInfo displayInfo)
         {
-            if (!DisplayInfo.ContainsKey(cultureName))
-            {
-                var memberInfo = new Dictionary<string, EnumDisplayInfo>();
-                memberInfo.Add(memberName, displayInfo);
-                DisplayInfo.Add(cultureName, memberInfo);
-            }
-            else
-            {
-                var memberInfo = DisplayInfo[cultureName];
-                memberInfo.Add(memberName, displayInfo);
-            }
+            DisplayInfo.Add(cultureName, displayInfo);
         }
     }
 
     public class EnumDisplayInfo
-    {
+    { 
         public string Display { get; set; }
 
         public string Description { get; set; }

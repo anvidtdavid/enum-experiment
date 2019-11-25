@@ -118,51 +118,51 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Sam.Value1.d" xml:space="preserve">
-    <value>Value 1</value>
+    <value>Wert 1</value>
   </data>
   <data name="Sam.Value1.dx" xml:space="preserve">
-    <value>Value 1 description</value>
+    <value>Wert 1 Beschreibung</value>
   </data>
   <data name="Sam.Value2.d" xml:space="preserve">
-    <value>Value 2</value>
+    <value>Wert 2</value>
   </data>
   <data name="Sam.Value2.dx" xml:space="preserve">
-    <value>Value 2 description</value>
+    <value>Wert 2 Beschreibung</value>
   </data>
   <data name="Status.Approved.d" xml:space="preserve">
-    <value>Approved</value>
+    <value>Genehmigt</value>
   </data>
   <data name="Status.Approved.dx" xml:space="preserve">
-    <value>Approved status description</value>
+    <value>Genehmigte Statusbeschreibung</value>
   </data>
   <data name="Status.Completed.d" xml:space="preserve">
-    <value>Completed</value>
+    <value>Abgeschlossen</value>
   </data>
   <data name="Status.Completed.dx" xml:space="preserve">
-    <value>Completed status description</value>
+    <value>Statusbeschreibung abgeschlossen</value>
   </data>
   <data name="Status.InProgress.d" xml:space="preserve">
-    <value>In Progress</value>
+    <value>In Bearbeitung</value>
   </data>
   <data name="Status.InProgress.dx" xml:space="preserve">
-    <value>Status is in progress</value>
+    <value>Der Status ist in Bearbeitung</value>
   </data>
   <data name="Status.New.d" xml:space="preserve">
-    <value>New</value>
+    <value>Neu</value>
   </data>
   <data name="Status.New.dx" xml:space="preserve">
-    <value>Status is New</value>
+    <value>Der Status ist Neu</value>
   </data>
   <data name="Status.OnHold.d" xml:space="preserve">
-    <value>On Hold</value>
+    <value>In Wartestellung</value>
   </data>
   <data name="Status.OnHold.dx" xml:space="preserve">
-    <value>On hold status description</value>
+    <value>Wartestatus Beschreibung</value>
   </data>
   <data name="Status.Rejected.d" xml:space="preserve">
-    <value>Rejected</value>
+    <value>Abgelehnt</value>
   </data>
   <data name="Status.Rejected.dx" xml:space="preserve">
-    <value>Rejected status description</value>
+    <value>Statusbeschreibung abgelehnt</value>
   </data>
 </root>

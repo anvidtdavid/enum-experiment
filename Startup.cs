@@ -29,7 +29,7 @@ namespace EnumExperiment
         {
             services.AddControllers();
 
-            services.AddSingleton(typeof(IEnumerable<EnumDescriptor>),
+            services.AddSingleton(typeof(Dictionary<string, Dictionary<string, EnumDescriptor>>),
                 EnumDescriptionFactory.Create("EnumExperiment.Properties.Resources", "de-DE"));
         }
 
