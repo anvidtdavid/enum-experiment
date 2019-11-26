@@ -9,7 +9,7 @@ namespace EnumExperiment.Models
 {
     public class EnumDescriptor
     {
-         public int Code { get; set; }
+         public string Name { get; set; }
 
         public IDictionary<string, EnumDisplayInfo> DisplayInfo { get; set; }
 

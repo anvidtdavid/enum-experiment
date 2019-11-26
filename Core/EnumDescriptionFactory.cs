@@ -46,7 +46,7 @@ namespace EnumExperiment.Core
                 {
                     var enumDescription = new EnumDescriptor
                     {
-                        Code = (int)Enum.Parse(codeValue, member.Name)
+                        Name = member.Name
                     };
 
                     foreach (var culture in cultures)
@@ -69,7 +69,7 @@ namespace EnumExperiment.Core
                         });
                     }
 
-                    resultDictionary[codeValue.Name].Add(member.Name,enumDescription);
+                    resultDictionary[codeValue.Name].Add($"{(int)Enum.Parse(codeValue, member.Name)}",enumDescription);
                 }
             }
 
