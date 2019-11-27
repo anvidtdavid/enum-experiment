@@ -2,6 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp3.0</TargetFramework>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -30,7 +31,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="ClientApp\" />
+    <Folder Include="ClientApp\enum-ex-client\" />
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="cd $(ProjectDir)\ClientApp&#xD;&#xA;npm start" />
+  </Target>
 
 </Project>
