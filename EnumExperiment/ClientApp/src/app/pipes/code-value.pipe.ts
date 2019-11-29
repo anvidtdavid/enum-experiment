@@ -14,7 +14,10 @@ export class CodeValuePipe implements PipeTransform {
       return null;
     }
 
-    return this.enumService.getValue(args[0], value, (args[1] === undefined ? args[1] : false), (args[2] ? args[2] : null));
+    return this.enumService.getValue(args[0],
+      value,
+      ((args[1] !== undefined && args[1] !== null) ? args[1] : false),
+      (args[2] ? args[2] : null));
   }
 
 }

@@ -23,7 +23,7 @@ export class EnumDescriptorService implements OnDestroy {
     };
 
     http.get<any>('/api/common/getenums').pipe(takeUntil(this.isDestroyed$)).subscribe(x => {
-      console.log(x);
+        console.log(x);
       localStorage.setItem('codeValues', JSON.stringify(x));
     });
   }
